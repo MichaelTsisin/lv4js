@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+        <title>Grocery List</title>
+<link rel="stylesheet" href="style.css">
+  <script>
+          function frc() {
+    stndraritmelisss = document.getElementById("stndraritmelisss");
+    grocryyitems = document.getElementById("grocryyitems");
+       counthgeh = document.getElementById("counthgeh");
+           gorcryshoplis = ["banana"];
+    shwc();
+}
+
+function shwc() {
+        stndraritmelisss.innerHTML = "1." + gorcryshoplis[0];
+          for (let f = 1; f < gorcryshoplis.length; f++){
+             stndraritmelisss.innerHTML += "<br/>" + (f+1) + " ." + gorcryshoplis[f];
+    }
+      }
+
+      function deltgrocryyitemsnow() {
+          if(gorcryshoplis.includes(grocryyitems.value)){
+        gorcryshoplis.splice(inf(gorcryshoplis, grocryyitems.value), 1);
+            shwc();
+           }
+}
+function inf(array, grocryyitemss) {
+            let idxxlistn = [];
+    for (let f = 0; f < array.length; f++)
+           if (grocryyitemss === array[f])
+               idxxlistn.push(f);
+           return idxxlistn;
+}
+
+function grocryyitemsplus() {
+          if(!gorcryshoplis.includes(grocryyitems.value)){
+                  gorcryshoplis.push(grocryyitems.value);
+        shwc();
+    }
+}
+
+
+
+
+function movgrocryyitemsupndown(upsideinxP) {
+    let lastindxx = parseInt(grocryyitems.value);
+        let upsideinx = lastindxx + parseInt(upsideinxP);
+          if(upsideinx < 0){
+        return;
+           }
+        if(upsideinx > gorcryshoplis.length-1){
+            upsideinx--;
+              return;
+    }
+          gorcryshoplis.splice(upsideinx, 0, gorcryshoplis.splice(lastindxx, 1)[0]);
+    grocryyitems.value = upsideinx;
+        shwc();
+};
+  </script>
+</head>
+  <body onload="frc();">
+          <h1>Grocery List</h1>
+    <p></p>
+         <p> </p>
+    <div class="list">
+      <label>Groceries: <input type="text" id="grocryyitems"></label>
+                      <p></p>
+      <button onclick = "deltgrocryyitemsnow();">Delete</button>
+         <p></p>
+            <button onclick = "grocryyitemsplus();">Add</button>
+              <p></p>
+      <button onclick = "movgrocryyitemsupndown(1);">down</button>
+          <p></p>
+         <button onclick = "movgrocryyitemsupndown(-1);">up</button>
+        </div>
+    <div class="stndraritmelisss">
+      <div id="stndraritmelisss"></div>
+    </div>
+ 
+  </body>
+</html>
